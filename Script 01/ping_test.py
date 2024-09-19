@@ -6,7 +6,9 @@ import subprocess
 import os
 
 def get_default_gateway():
-    return
+    p = subprocess.Popen(["ip r"], stdout=subprocess.PIPE, shell=True)
+    out = p.stdout.read()
+    print(out)
 
 def test_local():
     return
@@ -32,16 +34,12 @@ def main():
         if option.isnumeric() == True:
             if option == "1":
                 get_default_gateway()
-                break
             if option == "2":
                 test_local()
-                break
             if option == "3":
                 test_remote()
-                break
             if option == "4":
                 test_DNS()
-                break
             if option == "5":
                 print("Exiting")
                 break
