@@ -48,9 +48,13 @@ def main():
     print("")
     print("\33[31mCOUNT  IP ADDRESS  COUNTRY\033[0m")
     
+    attacker_data.sort(key=lambda x: x[1])
+
     for ip, attempts in attacker_data:
         location = country(ip)
         print("{:<5} {:<15} {}".format(attempts, ip, location))
+
+    print("")
 
 if __name__ == "__main__":
     os.system("clear")
